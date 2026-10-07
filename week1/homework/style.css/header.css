@@ -1,0 +1,138 @@
+:root {
+  --header-height: 64px;
+  --header-background: #effcf7;
+  --header-border: #c9eee0;
+  --header-text: #202124;
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-height);
+  color: var(--header-text);
+  font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
+}
+
+.header__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  width: min(100%, 1200px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.header__profile,
+.header__socials {
+  display: flex;
+  align-items: center;
+}
+
+.header__profile {
+  justify-self: start;
+  gap: 10px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.header__avatar {
+  display: block;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header__avatar:hover {
+  box-shadow: 0 6px 16px rgb(31 41 55 / 24%);
+  transform: translateY(-1px);
+}
+
+.header__title {
+  justify-self: center;
+  margin: 0;
+  color: var(--header-text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.header__socials {
+  justify-self: end;
+  gap: 14px;
+}
+
+.header__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--header-text);
+  text-decoration: none;
+}
+
+.header__social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.header__social-link:hover {
+  opacity: 0.65;
+}
+
+.header__social-link:focus-visible {
+  outline: 2px solid #14b885;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-height: 56px;
+  }
+
+  .header__inner {
+    padding: 0 16px;
+  }
+
+  .header__profile {
+    gap: 6px;
+  }
+
+  .header__avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header__title {
+    font-size: 16px;
+  }
+
+  .header__socials {
+    gap: 10px;
+  }
+
+  .header__social-icon {
+    width: 21px;
+    height: 21px;
+  }
+}
