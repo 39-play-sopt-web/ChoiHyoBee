@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>효비 블로그</title>
+    <link rel="stylesheet" href="./style.css/header.css" />
+    <link rel="stylesheet" href="./style.css/navigation.css" />
+    <link rel="stylesheet" href="./style.css/photo-dump.css" />
+    <link rel="stylesheet" href="./style.css/favorites.css" />
+    <link rel="stylesheet" href="./style.css/interests.css" />
+    <link rel="stylesheet" href="./style.css/webtory.css" />
+    <link rel="stylesheet" href="./style.css/footer.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__profile" href="#" aria-label="홈으로 이동">
+          <img
+            class="header__avatar"
+            src="./images/profile.jpg"
+            alt="효비의 프로필"
+          />
+        </a>
+
+        <h1 class="header__title">효비 블로그</h1>
+
+        <nav class="header__socials" aria-label="소셜 링크">
+          <a
+            class="header__social-link"
+            href="https://github.com/Hyobee02"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub 새 창에서 열기"
+          >
+            <img
+              class="header__social-icon"
+              src="./images/github.svg"
+              alt=""
+            />
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="page-layout">
+        <nav class="side-nav" aria-label="사이드 목차">
+          <ul class="side-nav__list">
+            <li class="side-nav__item">
+              <a class="side-nav__link" href="#photo-dump">📷 포토 덤프</a>
+            </li>
+            <li class="side-nav__item">
+              <a class="side-nav__link" href="#favorites">🫰 좋아하는 것</a>
+            </li>
+            <li class="side-nav__item">
+              <a class="side-nav__link" href="#interests">🥐 내 관심사</a>
+            </li>
+            <li class="side-nav__item">
+              <a class="side-nav__link" href="#weltery">🌰 To. 웹토리</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="content-sections">
+          <section id="photo-dump" class="photo-dump">
+            <h2 class="photo-dump__title">📷 포토 덤프</h2>
+
+            <div class="photo-dump__grid">
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo1.jpg" alt="포토 덤프 사진 1" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo2.jpg" alt="포토 덤프 사진 2" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo3.jpg" alt="포토 덤프 사진 3" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo4.jpg" alt="포토 덤프 사진 4" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo5.jpg" alt="포토 덤프 사진 5" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo6.jpg" alt="포토 덤프 사진 6" />
+              </div>
+            </div>
+          </section>
+
+          <section id="favorites" class="favorites">
+            <h2 class="favorites__title">🫰 좋아하는 것</h2>
+
+            <h3 class="favorites__subtitle">몬치치, 커비</h3>
+            <div class="favorites__banner">
+              <div class="favorites__group">
+                <img class="favorites__image" src="./images/favorite1.jpg" alt="좋아하는 것 1" />
+                <img class="favorites__image" src="./images/favorite2.jpg" alt="좋아하는 것 2" />
+                <img class="favorites__image" src="./images/favorite3.jpg" alt="좋아하는 것 3" />
+                <img class="favorites__image" src="./images/favorite4.jpg" alt="좋아하는 것 4" />
+                <img class="favorites__image" src="./images/favorite5.jpg" alt="좋아하는 것 5" />
+                <img class="favorites__image" src="./images/favorite6.jpg" alt="좋아하는 것 6" />
+              </div>
+              <div class="favorites__group" aria-hidden="true">
+                <img class="favorites__image" src="./images/favorite1.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite2.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite3.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite4.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite5.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite6.jpg" alt="" />
+              </div>
+            </div>
+          </section>
+
+          <section id="interests" class="interests">
+            <h2 class="interests__title">🥐 내 관심사</h2>
+
+            <div class="interests__grid">
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest1.jpg" alt="관심사 1" />
+                <h3 class="interest-card__title">빵</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest2.jpg" alt="관심사 2" />
+                <h3 class="interest-card__title">떡볶이</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest3.jpg" alt="관심사 3" />
+                <h3 class="interest-card__title">여행</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest4.jpg" alt="관심사 4" />
+                <h3 class="interest-card__title">산책</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest5.jpg" alt="관심사 5" />
+                <h3 class="interest-card__title">카페가기</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest6.jpg" alt="관심사 6" />
+                <h3 class="interest-card__title">몬치치</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+              <article class="interest-card">
+                <img class="interest-card__image" src="./images/interest7.jpg" alt="관심사 7" />
+                <h3 class="interest-card__title">커비</h3>
+                <div class="interest-card__buttons"><button class="interest-card__button">좋아요</button><button class="interest-card__button">싫어요</button></div>
+              </article>
+            </div>
+          </section>
+
+          <section id="weltery" class="weltery">
+            <h2 class="weltery__title">To. 웹토리</h2>
+            <div class="weltery__box">
+              <p class="weltery__message">반가워요 !! 앞으로도 잘 부탁드립니다!~~ </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <p class="footer__text">자기 소개 끝 ~~~~~</p>
+      </div>
+    </footer>
+  </body>
+</html>

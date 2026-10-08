@@ -1,0 +1,51 @@
+.favorites {
+  margin-top: 64px;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.favorites__title {
+  margin-bottom: 32px;
+}
+
+.favorites__subtitle {
+  margin: 24px 0 12px;
+}
+
+.favorites__banner {
+  display: flex;
+  overflow-x: auto;
+  padding: 16px 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.favorites__banner::-webkit-scrollbar {
+  display: none;
+}
+
+.favorites__group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+  padding-right: 12px;
+  animation: banner-scroll 30s linear infinite;
+}
+
+.favorites__banner:hover .favorites__group {
+  animation-play-state: paused;
+}
+
+.favorites__image {
+  width: auto;
+  height: 180px;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+@keyframes banner-scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
