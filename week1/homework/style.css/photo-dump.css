@@ -1,5 +1,4 @@
 .photo-dump {
-  flex: 1;
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
 

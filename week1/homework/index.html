@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css/header.css" />
     <link rel="stylesheet" href="./style.css/navigation.css" />
     <link rel="stylesheet" href="./style.css/photo-dump.css" />
+    <link rel="stylesheet" href="./style.css/favorites.css" />
     <link rel="stylesheet" href="./style.css/footer.css" />
   </head>
   <body>
@@ -59,36 +60,62 @@
           </ul>
         </nav>
 
-        <section id="photo-dump" class="photo-dump">
-          <h2 class="photo-dump__title">📷 포토 덤프</h2>
+        <div class="content-sections">
+          <section id="photo-dump" class="photo-dump">
+            <h2 class="photo-dump__title">📷 포토 덤프</h2>
 
-          <div class="photo-dump__grid">
-            <div class="photo-dump__item">
-              <img class="photo-dump__image" src="./images/photo1.jpg" alt="포토 덤프 사진 1" />
+            <div class="photo-dump__grid">
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo1.jpg" alt="포토 덤프 사진 1" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo2.jpg" alt="포토 덤프 사진 2" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo3.jpg" alt="포토 덤프 사진 3" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo4.jpg" alt="포토 덤프 사진 4" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo5.jpg" alt="포토 덤프 사진 5" />
+              </div>
+              <div class="photo-dump__item">
+                <img class="photo-dump__image" src="./images/photo6.jpg" alt="포토 덤프 사진 6" />
+              </div>
             </div>
-            <div class="photo-dump__item">
-              <img class="photo-dump__image" src="./images/photo2.jpg" alt="포토 덤프 사진 2" />
+          </section>
+
+          <section id="favorites" class="favorites">
+            <h2 class="favorites__title">🫰 좋아하는 것</h2>
+
+            <h3 class="favorites__subtitle">몬치치, 커비</h3>
+            <div class="favorites__banner">
+              <div class="favorites__group">
+                <img class="favorites__image" src="./images/favorite1.jpg" alt="좋아하는 것 1" />
+                <img class="favorites__image" src="./images/favorite2.jpg" alt="좋아하는 것 2" />
+                <img class="favorites__image" src="./images/favorite3.jpg" alt="좋아하는 것 3" />
+                <img class="favorites__image" src="./images/favorite4.jpg" alt="좋아하는 것 4" />
+                <img class="favorites__image" src="./images/favorite5.jpg" alt="좋아하는 것 5" />
+                <img class="favorites__image" src="./images/favorite6.jpg" alt="좋아하는 것 6" />
+              </div>
+              <div class="favorites__group" aria-hidden="true">
+                <img class="favorites__image" src="./images/favorite1.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite2.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite3.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite4.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite5.jpg" alt="" />
+                <img class="favorites__image" src="./images/favorite6.jpg" alt="" />
+              </div>
             </div>
-            <div class="photo-dump__item">
-              <img class="photo-dump__image" src="./images/photo3.jpg" alt="포토 덤프 사진 3" />
-            </div>
-            <div class="photo-dump__item">
-              <img class="photo-dump__image" src="./images/photo4.jpg" alt="포토 덤프 사진 4" />
-            </div>
-            <div class="photo-dump__item">
-              <img class="photo-dump__image" src="./images/photo5.jpg" alt="포토 덤프 사진 5" />
-            </div>
-            <div class="photo-dump__item">
-              <img class="photo-dump__image" src="./images/photo6.jpg" alt="포토 덤프 사진 6" />
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </main>
 
     <footer class="footer">
       <div class="footer__inner">
-        <p class="footer__text">© 2026 효비 블로그~~~~~</p>
+        <p class="footer__text">자기 소개 끝 ~~~~~</p>
       </div>
     </footer>
   </body>
