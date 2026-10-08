@@ -1,7 +1,7 @@
 :root {
   --header-height: 64px;
-  --header-background: #effcf7;
-  --header-border: #c9eee0;
+  --header-background: #f4efff;
+  --header-border: #d8c9f2;
   --header-text: #202124;
 }
 
@@ -100,7 +100,7 @@ body {
 }
 
 .header__social-link:focus-visible {
-  outline: 2px solid #14b885;
+  outline: 2px solid #8a63c7;
   outline-offset: 4px;
   border-radius: 4px;
 }

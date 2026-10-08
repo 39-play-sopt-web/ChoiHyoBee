@@ -29,7 +29,7 @@
   padding: 16px;
   color: #222;
   text-decoration: none;
-  background-color: #e2f7ef;
+  background-color: #eee7ff;
   border-bottom: 2px solid white;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .side-nav__link:hover {
-  background-color: #9ee8d1;
+  background-color: #d5c2f3;
 }
 
 .content-sections {
@@ -59,7 +59,7 @@
   min-height: 360px;
   padding: 24px;
   scroll-margin-top: calc(var(--header-height) + 24px);
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e4dcf5;
 }
 
 .content-section__title {
