@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Game from './components/Game'
 import Header from './components/Header'
+import Ranking from './components/Ranking'
 
 function App() {
   const [menu, setMenu] = useState('game')
@@ -29,7 +30,7 @@ function App() {
       {menu === 'game' && (
         <Game key={level} level={level} setTime={setTime} />
       )}
-      {menu === 'ranking' && <main className="flex-1 bg-[#c8f8f6]" />}
+      {menu === 'ranking' && <Ranking />}
     </div>
   )
 }
