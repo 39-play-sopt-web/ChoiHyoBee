@@ -1,13 +1,21 @@
 import { useState } from 'react'
+import Game from './components/Game'
 import Header from './components/Header'
 
 function App() {
   const [menu, setMenu] = useState('game')
+  const [time, setTime] = useState(0)
+
+  function changeMenu(newMenu) {
+    setMenu(newMenu)
+    setTime(0)
+  }
 
   return (
     <div className="flex min-h-screen flex-col text-gray-900">
-      <Header menu={menu} setMenu={setMenu} />
-      <main className="flex-1 bg-[#c8f8f6]" />
+      <Header menu={menu} changeMenu={changeMenu} time={time} />
+      {menu === 'game' && <Game setTime={setTime} />}
+      {menu === 'ranking' && <main className="flex-1 bg-[#c8f8f6]" />}
     </div>
   )
 }

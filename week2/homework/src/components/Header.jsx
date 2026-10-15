@@ -1,4 +1,4 @@
-function Header({ menu, setMenu }) {
+function Header({ menu, changeMenu, time }) {
   return (
     <header className="grid h-12 grid-cols-3 items-center bg-white px-6 shadow-sm">
       <h1 className="font-bold">🔢 숫자 클릭 게임</h1>
@@ -11,7 +11,7 @@ function Header({ menu, setMenu }) {
               ? 'rounded-lg bg-teal-200 px-4 py-2 font-semibold'
               : 'px-4 py-2 text-gray-500'
           }
-          onClick={() => setMenu('game')}
+          onClick={() => changeMenu('game')}
         >
           게임
         </button>
@@ -23,7 +23,7 @@ function Header({ menu, setMenu }) {
               ? 'rounded-lg bg-teal-200 px-4 py-2 font-semibold'
               : 'px-4 py-2 text-gray-500'
           }
-          onClick={() => setMenu('ranking')}
+          onClick={() => changeMenu('ranking')}
         >
           랭킹
         </button>
@@ -37,12 +37,10 @@ function Header({ menu, setMenu }) {
               aria-label="레벨 선택"
             >
               <option>Level 1 (3x3)</option>
-              <option>Level 2 (4x4)</option>
-              <option>Level 3 (5x5)</option>
             </select>
 
             <span className="rounded-md bg-teal-200 px-3 py-1 text-sm font-bold">
-              0.00초
+              {time.toFixed(2)}초
             </span>
           </div>
         )}
