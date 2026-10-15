@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { clearRecords, loadRecords } from '../utils/storage'
 
 function getRecords() {
-  const records = JSON.parse(localStorage.getItem('gameRecords')) || []
+  const records = loadRecords()
 
   records.sort((a, b) => {
     if (a.level !== b.level) {
@@ -30,7 +31,7 @@ function Ranking() {
   const [records, setRecords] = useState(getRecords)
 
   function resetRecords() {
-    localStorage.removeItem('gameRecords')
+    clearRecords()
     setRecords([])
   }
 
