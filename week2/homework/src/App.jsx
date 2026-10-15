@@ -4,6 +4,7 @@ import Header from './components/Header'
 
 function App() {
   const [menu, setMenu] = useState('game')
+  const [level, setLevel] = useState(1)
   const [time, setTime] = useState(0)
 
   function changeMenu(newMenu) {
@@ -11,10 +12,23 @@ function App() {
     setTime(0)
   }
 
+  function changeLevel(newLevel) {
+    setLevel(newLevel)
+    setTime(0)
+  }
+
   return (
     <div className="flex min-h-screen flex-col text-gray-900">
-      <Header menu={menu} changeMenu={changeMenu} time={time} />
-      {menu === 'game' && <Game setTime={setTime} />}
+      <Header
+        menu={menu}
+        changeMenu={changeMenu}
+        level={level}
+        changeLevel={changeLevel}
+        time={time}
+      />
+      {menu === 'game' && (
+        <Game key={level} level={level} setTime={setTime} />
+      )}
       {menu === 'ranking' && <main className="flex-1 bg-[#c8f8f6]" />}
     </div>
   )

@@ -1,4 +1,4 @@
-function Header({ menu, changeMenu, time }) {
+function Header({ menu, changeMenu, level, changeLevel, time }) {
   return (
     <header className="grid h-12 grid-cols-3 items-center bg-white px-6 shadow-sm">
       <h1 className="font-bold">🔢 숫자 클릭 게임</h1>
@@ -35,8 +35,12 @@ function Header({ menu, changeMenu, time }) {
             <select
               className="rounded-md border border-gray-300 px-3 py-1.5 text-sm"
               aria-label="레벨 선택"
+              value={level}
+              onChange={(event) => changeLevel(Number(event.target.value))}
             >
-              <option>Level 1 (3x3)</option>
+              <option value="1">Level 1 (3x3)</option>
+              <option value="2">Level 2 (4x4)</option>
+              <option value="3">Level 3 (5x5)</option>
             </select>
 
             <span className="rounded-md bg-teal-200 px-3 py-1 text-sm font-bold">

@@ -1,8 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
-const firstNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-const laterNumbers = [10, 11, 12, 13, 14, 15, 16, 17, 18]
+function makeNumbers(start, end) {
+  const numbers = []
+
+  for (let number = start; number <= end; number += 1) {
+    numbers.push(number)
+  }
+
+  return numbers
+}
 
 function mixNumbers(numbers) {
   const copiedNumbers = [...numbers]
@@ -12,7 +19,20 @@ function mixNumbers(numbers) {
   return copiedNumbers
 }
 
-function Game({ setTime }) {
+function getBoxSize(level) {
+  if (level === 1) return 'h-28 w-28'
+  if (level === 2) return 'h-24 w-24'
+  return 'h-20 w-20'
+}
+
+function Game({ level, setTime }) {
+  const boardSize = level + 2
+  const halfNumber = boardSize * boardSize
+  const lastNumber = halfNumber * 2
+  const firstNumbers = makeNumbers(1, halfNumber)
+  const laterNumbers = makeNumbers(halfNumber + 1, lastNumber)
+  const boxSize = getBoxSize(level)
+
   const [board, setBoard] = useState(() => mixNumbers(firstNumbers))
   const [waitingNumbers, setWaitingNumbers] = useState(() =>
     mixNumbers(laterNumbers),
@@ -46,7 +66,7 @@ function Game({ setTime }) {
 
     records.push({
       playedAt: new Date().toISOString(),
-      level: 1,
+      level,
       playTime: Number(playTime.toFixed(2)),
     })
 
@@ -61,7 +81,7 @@ function Game({ setTime }) {
       setIsStarted(true)
     }
 
-    if (number === 18) {
+    if (number === lastNumber) {
       const clearTime = (clickedTime - startTimeRef.current) / 1000
 
       setIsStarted(false)
@@ -74,12 +94,12 @@ function Game({ setTime }) {
     setBoard((oldBoard) =>
       oldBoard.map((item, itemIndex) => {
         if (itemIndex !== index) return item
-        if (number <= 9) return waitingNumbers[0]
+        if (number <= halfNumber) return waitingNumbers[0]
         return null
       }),
     )
 
-    if (number <= 9) {
+    if (number <= halfNumber) {
       setWaitingNumbers((numbers) => numbers.slice(1))
     }
 
@@ -93,19 +113,22 @@ function Game({ setTime }) {
           <p className="mb-8 text-2xl font-semibold">
             다음 숫자: <span className="font-bold">{targetNumber}</span>{' '}
             <span className="text-lg text-gray-500">
-              ({targetNumber}/18)
+              ({targetNumber}/{lastNumber})
             </span>
           </p>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div
+            className="grid gap-3"
+            style={{ gridTemplateColumns: `repeat(${boardSize}, 1fr)` }}
+          >
             {board.map((number, index) =>
               number === null ? (
-                <div key={index} className="h-28 w-28" />
+                <div key={index} className={boxSize} />
               ) : (
                 <button
                   key={index}
                   type="button"
-                  className="h-28 w-28 rounded-xl bg-white text-3xl font-bold shadow-sm"
+                  className={`${boxSize} rounded-xl bg-white text-3xl font-bold shadow-sm transition active:scale-90 active:bg-teal-200`}
                   onClick={(event) =>
                     clickNumber(number, index, event.timeStamp)
                   }
@@ -122,7 +145,9 @@ function Game({ setTime }) {
         createPortal(
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50">
             <div className="w-80 rounded-2xl bg-white p-7 text-center shadow-xl">
-              <h2 className="mb-3 text-xl font-bold">🎉 Level 1 클리어!</h2>
+              <h2 className="mb-3 text-xl font-bold">
+                🎉 Level {level} 클리어!
+              </h2>
               <p className="mb-6 text-4xl font-bold">
                 {resultTime.toFixed(2)}초
               </p>
