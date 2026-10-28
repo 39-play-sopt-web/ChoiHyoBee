@@ -5,9 +5,15 @@ import MovieCard from '../components/MovieCard'
 import RatingFilter from '../components/RatingFilter'
 import type { Movie } from '../types/movie'
 
+interface RatingRange {
+  minRating?: number
+  maxRating?: number
+}
+
 function MovieListPage() {
   const [movies, setMovies] = useState<Movie[]>([])
   const [page, setPage] = useState(1)
+  const [ratingRange, setRatingRange] = useState<RatingRange>({})
   const [isLoading, setIsLoading] = useState(true)
   const [hasNextPage, setHasNextPage] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -21,7 +27,7 @@ function MovieListPage() {
       setError(null)
 
       try {
-        const data = await getMovies(page)
+        const data = await getMovies({ page, ...ratingRange })
 
         if (!isCancelled) {
           setMovies((currentMovies) => [...currentMovies, ...data.results])
@@ -43,7 +49,7 @@ function MovieListPage() {
     return () => {
       isCancelled = true
     }
-  }, [page])
+  }, [page, ratingRange])
 
   useEffect(() => {
     const target = loadMoreRef.current
@@ -70,6 +76,13 @@ function MovieListPage() {
     }
   }, [error, hasNextPage, isLoading])
 
+  function handleFilterChange(minRating?: number, maxRating?: number) {
+    setMovies([])
+    setPage(1)
+    setHasNextPage(true)
+    setRatingRange({ minRating, maxRating })
+  }
+
   return (
     <>
       <Header />
@@ -78,7 +91,7 @@ function MovieListPage() {
         <h2 className="mb-4 text-[20px] font-extrabold text-white">
           영화 둘러보기
         </h2>
-        <RatingFilter />
+        <RatingFilter onFilterChange={handleFilterChange} />
 
         {movies.length > 0 && (
           <section className="mt-8 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-5">
