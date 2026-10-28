@@ -111,3 +111,30 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+html {
+  background: #1b1b25;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#root {
+  display: block;
+  width: auto;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  border: 0;
+  text-align: left;
+}
+
+h1 {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  letter-spacing: normal;
+}
