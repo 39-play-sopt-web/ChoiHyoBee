@@ -17,7 +17,7 @@ function RatingFilter() {
 
   return (
     <section className="mt-6">
-      <div className="flex flex-wrap gap-2 px-20">
+      <div className="flex flex-wrap gap-2">
         {FILTERS.map((filter) => {
           const isSelected = selectedFilter === filter
 
