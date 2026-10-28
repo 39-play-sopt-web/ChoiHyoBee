@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import type { Movie } from '../types/movie'
 
 interface MovieCardProps {
@@ -8,7 +9,10 @@ const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 
 function MovieCard({ movie }: MovieCardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-xl bg-white/5 transition-all duration-300 hover:z-10 hover:-translate-y-2 hover:scale-[1.04] hover:bg-white/10 hover:ring-2 hover:ring-[#65d8c5] hover:shadow-[0_18px_45px_rgba(101,216,197,0.3)]">
+    <Link
+      to={`/movies/${movie.id}`}
+      className="group relative block overflow-hidden rounded-xl bg-white/5 no-underline transition-all duration-300 hover:z-10 hover:-translate-y-2 hover:scale-[1.04] hover:bg-white/10 hover:ring-2 hover:ring-[#65d8c5] hover:shadow-[0_18px_45px_rgba(101,216,197,0.3)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#65d8c5]"
+    >
       {movie.poster_path ? (
         <img
           className="aspect-[2/3] w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -39,7 +43,7 @@ function MovieCard({ movie }: MovieCardProps) {
           {movie.overview || '등록된 줄거리가 없습니다.'}
         </p>
       </div>
-    </article>
+    </Link>
   )
 }
 
