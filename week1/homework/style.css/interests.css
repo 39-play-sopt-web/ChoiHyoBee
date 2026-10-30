@@ -1,0 +1,77 @@
+.interests {
+  margin-top: 64px;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.interests__title {
+  margin-bottom: 20px;
+}
+
+.interests__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.interest-card {
+  overflow: hidden;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #e4dcf5;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.interest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 15%);
+}
+
+.interest-card__image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.interest-card__title {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.interest-card__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-bottom: 12px;
+}
+
+.interest-card__button {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 14px;
+  background-color: #bde3f5;
+}
+
+.interest-card__button:last-child {
+  background-color: #ffc1c1;
+}
+
+.interest-card__button:hover {
+  background-color: #75c8ef;
+}
+
+.interest-card__button:last-child:hover {
+  background-color: #ff8f8f;
+}
+
+@media (max-width: 1000px) {
+  .interests__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .interests__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .interests__grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,32 @@
+.weltery {
+  margin: 64px 0;
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.weltery__title {
+  margin-bottom: 20px;
+}
+
+.weltery__box {
+  padding: 20px;
+  background-color: #eee7ff;
+}
+
+.weltery__message {
+  margin: 0;
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.weltery__message::before {
+  content: "🌰";
+  margin-right: 8px;
+  color: #ff5c6c;
+}
+
+.weltery__message::after {
+  content: "💗";
+  margin-left: 8px;
+  color: #ff5c6c;
+}
