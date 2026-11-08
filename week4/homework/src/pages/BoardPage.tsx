@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState, type FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { getPosts } from '../apis/posts'
 
 function BoardPage() {
@@ -46,9 +47,10 @@ function BoardPage() {
         )}
 
         {posts.map((post) => (
-          <article
-            className="rounded-[16px] border border-transparent bg-[#30302f] px-[26px] py-[22px] text-white transition hover:border-[#65d8c5] hover:shadow-[0_0_20px_rgba(101,216,197,0.15)]"
+          <Link
+            className="rounded-[16px] border border-transparent bg-[#30302f] px-[26px] py-[22px] text-white no-underline transition hover:border-[#65d8c5] hover:shadow-[0_0_20px_rgba(101,216,197,0.15)]"
             key={post.id}
+            to={`/posts/${post.id}`}
           >
             <h2 className="text-[18px] font-bold">{post.title}</h2>
             <p className="mt-[10px] text-[14px] text-white/60">{post.content}</p>
@@ -58,7 +60,7 @@ function BoardPage() {
                 {new Date(post.createdAt).toLocaleDateString('ko-KR')}
               </time>
             </div>
-          </article>
+          </Link>
         ))}
       </section>
     </main>

@@ -3,6 +3,7 @@ import Header from './components/Header'
 import AuthPage from './pages/AuthPage'
 import BoardPage from './pages/BoardPage'
 import CreatePostPage from './pages/CreatePostPage'
+import PostDetailPage from './pages/PostDetailPage'
 
 function App() {
   return (
@@ -25,6 +26,15 @@ function App() {
             <>
               <Header />
               <CreatePostPage />
+            </>
+          }
+        />
+        <Route
+          path="/posts/:postId"
+          element={
+            <>
+              <Header />
+              <PostDetailPage />
             </>
           }
         />
