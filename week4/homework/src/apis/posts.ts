@@ -44,12 +44,17 @@ interface PostListResponse {
   message: string
   data: {
     posts: Post[]
-    nextCursor: number
+    nextCursor: number | null
     hasNext: boolean
   }
 }
 
-export async function getPosts(keyword: string) {
+interface GetPostsParams {
+  keyword: string
+  cursor: number | null
+}
+
+export async function getPosts({ keyword, cursor }: GetPostsParams) {
   const apiUrl = import.meta.env.VITE_API_URL
 
   if (!apiUrl) {
@@ -57,10 +62,13 @@ export async function getPosts(keyword: string) {
   }
 
   const { data } = await axios.get<PostListResponse>(`${apiUrl}/posts`, {
-    params: keyword ? { keyword } : undefined,
+    params: {
+      keyword: keyword || undefined,
+      cursor: cursor ?? undefined,
+    },
   })
 
-  return data.data.posts
+  return data.data
 }
 
 export async function createPost(post: CreatePostRequest) {

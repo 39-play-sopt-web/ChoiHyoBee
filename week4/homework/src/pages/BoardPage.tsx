@@ -1,16 +1,46 @@
-import { useQuery } from '@tanstack/react-query'
-import { useState, type FormEvent } from 'react'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { getPosts } from '../apis/posts'
 
 function BoardPage() {
   const [input, setInput] = useState('')
   const [keyword, setKeyword] = useState('')
+  const loadMoreRef = useRef<HTMLDivElement>(null)
 
-  const { data: posts = [], isPending, isError } = useQuery({
+  const {
+    data,
+    isPending,
+    isError,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useInfiniteQuery({
     queryKey: ['posts', keyword],
-    queryFn: () => getPosts(keyword),
+    queryFn: ({ pageParam }) => getPosts({ keyword, cursor: pageParam }),
+    initialPageParam: null as number | null,
+    getNextPageParam: (lastPage) =>
+      lastPage.hasNext ? lastPage.nextCursor : undefined,
   })
+
+  const posts = data?.pages.flatMap((page) => page.posts) ?? []
+
+  useEffect(() => {
+    const target = loadMoreRef.current
+    if (!target || !hasNextPage) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isFetchingNextPage) {
+          fetchNextPage()
+        }
+      },
+      { rootMargin: '200px' },
+    )
+
+    observer.observe(target)
+    return () => observer.disconnect()
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage])
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -62,6 +92,10 @@ function BoardPage() {
             </div>
           </Link>
         ))}
+
+        <div ref={loadMoreRef} className="py-[16px] text-center text-[14px] text-white/45">
+          {isFetchingNextPage && '게시글을 더 불러오는 중입니다.'}
+        </div>
       </section>
     </main>
   )
