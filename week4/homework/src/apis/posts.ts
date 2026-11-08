@@ -9,6 +9,12 @@ export interface Post {
   updatedAt: string
 }
 
+export interface CreatePostRequest {
+  title: string
+  content: string
+  author: string
+}
+
 interface PostListResponse {
   isSuccess: boolean
   code: string
@@ -32,4 +38,17 @@ export async function getPosts(keyword: string) {
   })
 
   return data.data.posts
+}
+
+export async function createPost(post: CreatePostRequest) {
+  const apiUrl = import.meta.env.VITE_API_URL
+  const authorizationCode = localStorage.getItem('authorizationCode')
+
+  if (!apiUrl || !authorizationCode) {
+    throw new Error('API 주소 또는 인증 코드가 없습니다.')
+  }
+
+  await axios.post(`${apiUrl}/posts`, post, {
+    headers: { Authorization: authorizationCode },
+  })
 }

@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+
+const navStyle = ({ isActive }: { isActive: boolean }) =>
+  isActive ? 'text-[#65d8c5] no-underline' : 'text-white/70 no-underline'
 
 function Header() {
   return (
@@ -10,12 +13,12 @@ function Header() {
         WEB 파트
       </span>
       <nav className="ml-auto flex items-center gap-[36px] text-[13px] font-semibold">
-        <Link className="text-[#65d8c5] no-underline" to="/posts">
+        <NavLink className={navStyle} end to="/posts">
           게시글 목록
-        </Link>
-        <Link className="text-white/70 no-underline" to="/posts/new">
+        </NavLink>
+        <NavLink className={navStyle} to="/posts/new">
           글쓰기
-        </Link>
+        </NavLink>
         <button className="border-0 bg-transparent p-0 text-white/70">로그아웃</button>
       </nav>
     </header>

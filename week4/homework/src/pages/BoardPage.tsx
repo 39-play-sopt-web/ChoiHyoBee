@@ -55,7 +55,7 @@ function BoardPage() {
             <div className="mt-[16px] flex items-center gap-[12px] text-[13px]">
               <strong className="text-[#65d8c5]">{post.author}</strong>
               <time className="text-white/45">
-                {new Date(post.createdAt).toLocaleString('ko-KR')}
+                {new Date(post.createdAt).toLocaleDateString('ko-KR')}
               </time>
             </div>
           </article>
