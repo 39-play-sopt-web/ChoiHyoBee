@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
+import ProtectedRoute from './components/ProtectedRoute'
 import AuthPage from './pages/AuthPage'
 import BoardPage from './pages/BoardPage'
 import CreatePostPage from './pages/CreatePostPage'
@@ -23,19 +24,19 @@ function App() {
         <Route
           path="/posts/new"
           element={
-            <>
+            <ProtectedRoute>
               <Header />
               <CreatePostPage />
-            </>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/posts/:postId"
           element={
-            <>
+            <ProtectedRoute>
               <Header />
               <PostDetailPage />
-            </>
+            </ProtectedRoute>
           }
         />
       </Routes>

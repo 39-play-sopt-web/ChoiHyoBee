@@ -20,14 +20,14 @@ function PostDetailPage() {
   const updateMutation = useMutation({
     mutationFn: updatePost,
     onSuccess: async () => {
-      alert('게시글이 수정되었습니다.')
+      window.alert('게시글이 수정되었습니다.')
       await Promise.all([
         queryClient.invalidateQueries({ queryKey: ['posts'] }),
         queryClient.invalidateQueries({ queryKey: ['post', postId] }),
       ])
       setIsEditing(false)
     },
-    onError: () => alert('게시글 수정에 실패했습니다.'),
+    onError: () => window.alert('게시글 수정에 실패했습니다.'),
   })
 
   const deleteMutation = useMutation({
