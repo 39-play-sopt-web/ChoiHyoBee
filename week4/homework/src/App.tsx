@@ -1,14 +1,23 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
+import AuthPage from './pages/AuthPage'
 import BoardPage from './pages/BoardPage'
 
 function App() {
   return (
     <>
-      <Header />
       <Routes>
-        <Route path="/" element={<Navigate replace to="/posts" />} />
-        <Route path="/posts" element={<BoardPage />} />
+        <Route path="/" element={<Navigate replace to="/auth" />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route
+          path="/posts"
+          element={
+            <>
+              <Header />
+              <BoardPage />
+            </>
+          }
+        />
       </Routes>
     </>
   )

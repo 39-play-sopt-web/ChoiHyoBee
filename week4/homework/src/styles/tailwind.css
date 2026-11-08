@@ -11,3 +11,8 @@ body {
 button {
   cursor: pointer;
 }
+
+select option {
+  color: white;
+  background: #303036;
+}
